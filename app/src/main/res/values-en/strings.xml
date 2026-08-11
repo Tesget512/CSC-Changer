@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CSC Changer</string>
+    <string name="xposed_description">Change the CSC region (Sales Code) recognized by Samsung system apps</string>
+    <string name="module_disabled_toast">Module not enabled. Enable it in LSPosed and select scopes, then reboot</string>
+
+    <string name="topbar_title">CSC Changer</string>
+    <string name="nav_settings">Settings</string>
+    <string name="nav_language">Language</string>
+    <string name="back">Back</string>
+
+    <string name="module_switch">Module</string>
+    <string name="module_enabled">Enabled: system apps will receive custom CSC values</string>
+    <string name="module_disabled">Disabled: no system property is touched</string>
+    <string name="current_device">Current Device</string>
+    <string name="device_hint">Left of arrow = original device value, right = value target apps will see after spoofing</string>
+    <string name="target_region">Target Region (recognized)</string>
+    <string name="select_sales_code">Choose sales code (e.g. TGY / BRI / CHC)</string>
+    <string name="sales_code_label">Sales Code (CSC)</string>
+    <string name="region_code_label">Region Code (ISO-2)</string>
+    <string name="region_code_hint">Auto-filled from sales code; editable</string>
+    <string name="quick_regions">Common Regions</string>
+    <string name="sim_spoof">SIM Spoof</string>
+    <string name="sim_spoof_desc">Galaxy Store determines region by SIM MCC; must be set together with CSC</string>
+    <string name="real_mcc">Real MCC</string>
+    <string name="spoof_mcc">Spoof MCC</string>
+    <string name="spoof_region">Spoof Region</string>
+    <string name="mcc_label">MCC (3 digits, e.g. 454=Hong Kong)</string>
+    <string name="mcc_hint">Auto-filled from CSC; editable</string>
+    <string name="device_spoof">Device Spoof</string>
+    <string name="device_spoof_desc">Spoof Build info as another Galaxy model</string>
+    <string name="real_model">Real Model</string>
+    <string name="spoof_model">Spoof Model</string>
+    <string name="model_no">Model</string>
+    <string name="codename">Codename</string>
+    <string name="save_config">Save Config</string>
+    <string name="saved_toast">Config saved. Reopen the target app to apply</string>
+    <string name="effect_note">How to apply:\n1. Galaxy Store region is decided by SIM MCC + Samsung account country; changing CSC alone is not enough.\n2. Turn on "SIM Spoof" on this page and pick a target MCC, then fully close and reopen the target app (or reboot).</string>
+    <string name="follow_csc">(follows CSC)</string>
+    <string name="unknown">Unknown</string>
+
+    <string name="clear_store">Clear Store Data</string>
+    <string name="clear_store_desc">Clear Galaxy Store data (cached region), so spoofing takes effect</string>
+    <string name="clear_store_now">Clear Now</string>
+    <string name="clear_store_settings">Via Settings</string>
+    <string name="clear_store_done">Galaxy Store data cleared</string>
+    <string name="clear_store_fail">Failed: root permission required</string>
+    <string name="clear_store_success">Cleared. Reopening Galaxy Store</string>
+    <string name="clear_confirm_title">Confirm clear?</string>
+    <string name="clear_confirm_msg">This clears all Galaxy Store data (login may need re-verification). Required for region spoofing to re-apply.</string>
+    <string name="confirm">Confirm</string>
+    <string name="cancel">Cancel</string>
+
+    <string name="select_csc_title">Choose CSC</string>
+    <string name="search_hint">Search code or region</string>
+    <string name="clear">Clear</string>
+    <string name="search_result_count">%1$d CSC found</string>
+
+    <string name="settings_title">Advanced Settings</string>
+    <string name="custom_props">Custom Property Override</string>
+    <string name="custom_props_desc">JSON: {"property":"value"}, highest priority</string>
+    <string name="custom_features">Custom CscFeature Override</string>
+    <string name="custom_features_desc">JSON: {"CscFeature_xxx":"value"}</string>
+    <string name="save_settings">Save Settings</string>
+    <string name="settings_saved">Settings saved</string>
+    <string name="json_error">Invalid JSON</string>
+    <string name="sim_note">SIM Spoof config moved to the home page (as important as CSC).\nGalaxy Store region is determined by SIM MCC (verified); must be set with CSC to change region.</string>
+    <string name="scope_note">Module scope (configure in LSPosed):\n· android (system framework, core)\n· Galaxy Store / Theme Store / Settings / Samsung Pay etc.\nAfter enabling, check scopes in LSPosed and reboot.</string>
+</resources>

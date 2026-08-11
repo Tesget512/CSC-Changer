@@ -1,0 +1,20 @@
+# Gradle
+.gradle/
+build/
+app/build/
+local.properties
+
+# IDE
+.idea/
+*.iml
+.DS_Store
+
+# 构建缓存
+captures/
+.externalNativeBuild/
+.cxx/
+
+# 参考素材与内部文档（不发布）
+research/
+AGENTS.md
+PLAN.md

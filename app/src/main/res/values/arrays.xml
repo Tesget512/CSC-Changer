@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- LSPosed 模块作用域 -->
+    <string-array name="xposed_scope">
+        <item>android</item>
+        <item>com.sec.android.app.samsungapps</item>
+        <item>com.samsung.android.themestore</item>
+        <item>com.samsung.android.themecenter</item>
+        <item>com.android.settings</item>
+        <item>com.samsung.android.app.settings</item>
+        <item>com.samsung.android.samsungpay</item>
+        <item>com.sec.android.app.clockpackage</item>
+        <item>com.samsung.android.calendar</item>
+        <item>com.samsung.android.via</item>
+        <item>com.sec.android.app.sbrowser</item>
+        <!-- 三星账号（Galaxy Store 区域由它用 getMccFromUsim 判定） -->
+        <item>com.osp.app.signin</item>
+        <item>com.samsung.android.samsungaccount</item>
+        <item>com.samsung.android.authfw</item>
+    </string-array>
+</resources>

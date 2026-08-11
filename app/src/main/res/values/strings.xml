@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CSC Changer</string>
+    <string name="xposed_description">修改三星系统 App 识别到的 CSC 区域（Sales Code）</string>
+    <string name="module_disabled_toast">模块未启用，请在 LSPosed 中启用并选择作用域后重启</string>
+
+    <!-- 顶栏 / 导航 -->
+    <string name="topbar_title">CSC Changer</string>
+    <string name="nav_settings">设置</string>
+    <string name="nav_language">语言</string>
+    <string name="back">返回</string>
+
+    <!-- 主界面 -->
+    <string name="module_switch">模块开关</string>
+    <string name="module_enabled">已启用：将向系统 App 返回自定义 CSC</string>
+    <string name="module_disabled">已停用：不干预任何系统属性</string>
+    <string name="current_device">当前设备</string>
+    <string name="device_hint">箭头左侧为当前设备原信息，右侧为开启伪装后目标 App 识别到的值</string>
+    <string name="target_region">目标地区（被识别的区域）</string>
+    <string name="select_sales_code">选择销售代码（如 TGY / BRI / CHC）</string>
+    <string name="sales_code_label">销售代码（CSC）</string>
+    <string name="region_code_label">地区代码（ISO-2）</string>
+    <string name="region_code_hint">跟随销售代码自动填写，也可手动改</string>
+    <string name="quick_regions">常用地区</string>
+    <string name="sim_spoof">SIM 伪装</string>
+    <string name="sim_spoof_desc">Galaxy Store 按 SIM MCC 判定区域，必须与 CSC 一起设置</string>
+    <string name="real_mcc">真实 MCC</string>
+    <string name="spoof_mcc">模拟 MCC</string>
+    <string name="spoof_region">模拟地区</string>
+    <string name="mcc_label">MCC（3位数字，如 454=香港）</string>
+    <string name="mcc_hint">跟随 CSC 自动填写，可手动改</string>
+    <string name="device_spoof">机型伪装</string>
+    <string name="device_spoof_desc">模拟其他 Galaxy 机型的 Build 信息</string>
+    <string name="real_model">真实机型</string>
+    <string name="spoof_model">模拟机型</string>
+    <string name="model_no">型号</string>
+    <string name="codename">代号</string>
+    <string name="save_config">保存配置</string>
+    <string name="saved_toast">已保存配置，重新打开目标 App 生效</string>
+    <string name="effect_note">生效说明：\n1. Galaxy Store 等按 SIM 主卡 MCC + 三星账号国家判定区域，单改 CSC 无效。\n2. 主页同时开启「SIM 伪装」并选择目标 MCC，修改后完全结束并重新打开目标 App（或重启设备）。</string>
+    <string name="follow_csc">（跟随 CSC）</string>
+    <string name="unknown">未知</string>
+
+    <!-- 清理商店数据 -->
+    <string name="clear_store">清理商店数据</string>
+    <string name="clear_store_desc">清除 Galaxy Store 数据（缓存区域判定），使伪装生效</string>
+    <string name="clear_store_now">立即清理</string>
+    <string name="clear_store_settings">设置清理</string>
+    <string name="clear_store_done">已清除 Galaxy Store 数据</string>
+    <string name="clear_store_fail">清理失败：需要 root 权限</string>
+    <string name="clear_store_success">已清除，正在重新打开 Galaxy Store</string>
+    <string name="clear_confirm_title">确认清理？</string>
+    <string name="clear_confirm_msg">将清除 Galaxy Store 的全部数据（登录状态需重新验证）。此操作让区域伪装重新生效。</string>
+    <string name="confirm">确认</string>
+    <string name="cancel">取消</string>
+
+    <!-- 搜索页 -->
+    <string name="select_csc_title">选择 CSC</string>
+    <string name="search_hint">搜索代码或地区</string>
+    <string name="clear">清除</string>
+    <string name="search_result_count">共 %1$d 个 CSC</string>
+
+    <!-- 设置页 -->
+    <string name="settings_title">高级设置</string>
+    <string name="custom_props">自定义属性覆盖</string>
+    <string name="custom_props_desc">JSON 格式：{"属性名":"值"}，优先级最高</string>
+    <string name="custom_features">自定义 CscFeature 覆盖</string>
+    <string name="custom_features_desc">JSON 格式：{"CscFeature_xxx":"值"}</string>
+    <string name="save_settings">保存设置</string>
+    <string name="settings_saved">设置已保存</string>
+    <string name="json_error">JSON 格式错误</string>
+    <string name="sim_note">SIM 伪装配置已移至主页（与 CSC 同等重要）。\nGalaxy Store 按 SIM MCC 判定区域（实测确认），必须与 CSC 一起设置才能改变区域。</string>
+    <string name="scope_note">模块作用域（在 LSPosed 中配置）：\n· android（系统框架，核心）\n· Galaxy Store / 主题商店 / 设置 / 三星支付 等\n启用模块后需在 LSPosed 中勾选作用域并重启生效。</string>
+</resources>
