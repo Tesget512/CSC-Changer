@@ -58,3 +58,7 @@ Signing config is read from `local.properties` (`signing.storeFile` etc.). Falls
 ## Disclaimer
 
 This module modifies system properties. For personal testing and learning only. Changes may cause unexpected behavior or affect system stability. Use at your own risk.
+
+## License
+
+GNU General Public License v3.0 (GPL-3.0-only). See [LICENSE](LICENSE).

@@ -56,3 +56,7 @@ APK 输出在 `app/build/outputs/apk/release/`。
 ## 免责声明
 
 本模块修改系统属性，仅用于个人测试与学习。改动可能导致应用行为异常或影响系统稳定性，请自行评估风险。CSC 区域与账号服务条款相关的内容请以三星官方说明为准。
+
+## License
+
+GNU General Public License v3.0 (GPL-3.0-only)。详见 [LICENSE](LICENSE)。
