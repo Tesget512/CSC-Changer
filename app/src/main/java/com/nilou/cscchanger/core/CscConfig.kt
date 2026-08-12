@@ -33,8 +33,13 @@ data class CscConfig(
     val simCountryIso: String = "",
     /** 是否启用机型伪装（Build.MODEL/DEVICE/PRODUCT） */
     val spoofDevice: Boolean = false,
-    /** 目标机型展示名（如 "Galaxy Z Fold8"），与 DeviceModels 对应 */
+    /** 目标机型展示名（如 "Galaxy Z Fold7"），与 DeviceModels 对应；空 = 仅使用下方自定义字段 */
     val deviceName: String = "",
+    /** 自定义机型字段：留空则 fallback 到 [deviceName] 对应的 DeviceProfile */
+    val customModel: String = "",
+    val customDevice: String = "",
+    val customProductName: String = "",
+    val customMarketName: String = "",
     /** 自定义属性覆盖：key -> value */
     val customProps: Map<String, String> = emptyMap(),
     /** 自定义 CscFeature 覆盖：key -> value */
@@ -56,6 +61,10 @@ data class CscConfig(
         private const val KEY_SIM_ISO = "sim_country_iso"
         private const val KEY_SPOOF_DEVICE = "spoof_device"
         private const val KEY_DEVICE_NAME = "device_name"
+        private const val KEY_CUSTOM_MODEL = "custom_model"
+        private const val KEY_CUSTOM_DEVICE = "custom_device"
+        private const val KEY_CUSTOM_PRODUCT = "custom_product_name"
+        private const val KEY_CUSTOM_MARKET = "custom_market_name"
         private const val KEY_CUSTOM_PROPS = "custom_props"
         private const val KEY_CUSTOM_FEATURES = "custom_csc_features"
 
@@ -92,6 +101,10 @@ data class CscConfig(
             simCountryIso = prefs.getString(KEY_SIM_ISO, "") ?: "",
             spoofDevice = prefs.getBoolean(KEY_SPOOF_DEVICE, false),
             deviceName = prefs.getString(KEY_DEVICE_NAME, "") ?: "",
+            customModel = prefs.getString(KEY_CUSTOM_MODEL, "") ?: "",
+            customDevice = prefs.getString(KEY_CUSTOM_DEVICE, "") ?: "",
+            customProductName = prefs.getString(KEY_CUSTOM_PRODUCT, "") ?: "",
+            customMarketName = prefs.getString(KEY_CUSTOM_MARKET, "") ?: "",
             customProps = jsonToMap(prefs.getString(KEY_CUSTOM_PROPS, null)),
             customCscFeatures = jsonToMap(prefs.getString(KEY_CUSTOM_FEATURES, null)),
         )
@@ -112,6 +125,10 @@ data class CscConfig(
             prefs.putString(KEY_SIM_ISO, config.simCountryIso.lowercase())
             prefs.putBoolean(KEY_SPOOF_DEVICE, config.spoofDevice)
             prefs.putString(KEY_DEVICE_NAME, config.deviceName)
+            prefs.putString(KEY_CUSTOM_MODEL, config.customModel)
+            prefs.putString(KEY_CUSTOM_DEVICE, config.customDevice)
+            prefs.putString(KEY_CUSTOM_PRODUCT, config.customProductName)
+            prefs.putString(KEY_CUSTOM_MARKET, config.customMarketName)
             prefs.putString(KEY_CUSTOM_PROPS, mapToJson(config.customProps))
             prefs.putString(KEY_CUSTOM_FEATURES, mapToJson(config.customCscFeatures))
         }

@@ -51,16 +51,21 @@ object CscSpoof {
      */
     fun matchDeviceProp(key: String, config: CscConfig): String? {
         if (!config.enabled || !config.spoofDevice) return null
-        val profile = DeviceModels.findByName(config.deviceName) ?: return null
+        val profile = DeviceModels.findByName(config.deviceName)
+        // 自定义字段优先；为空时 fallback 到 profile
+        val model = config.customModel.takeIf { it.isNotBlank() } ?: profile?.model ?: return null
+        val device = config.customDevice.takeIf { it.isNotBlank() } ?: profile?.device ?: return null
+        val productName = config.customProductName.takeIf { it.isNotBlank() } ?: profile?.productName ?: return null
+        val marketName = config.customMarketName.takeIf { it.isNotBlank() } ?: profile?.name ?: return null
         return when (key) {
-            "ro.product.model" -> profile.model
-            "ro.product.device" -> profile.device
-            "ro.build.product" -> profile.device
-            "ro.product.name" -> profile.productName
-            "ro.product.odm.model" -> profile.model
-            "ro.product.vendor.model" -> profile.model
-            "ro.product.marketname" -> profile.name
-            "ro.product.product.model" -> profile.model
+            "ro.product.model" -> model
+            "ro.product.device" -> device
+            "ro.build.product" -> device
+            "ro.product.name" -> productName
+            "ro.product.odm.model" -> model
+            "ro.product.vendor.model" -> model
+            "ro.product.marketname" -> marketName
+            "ro.product.product.model" -> model
             else -> null
         }
     }

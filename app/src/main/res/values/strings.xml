@@ -31,6 +31,11 @@
     <string name="mcc_hint">跟随 CSC 自动填写，可手动改</string>
     <string name="device_spoof">机型伪装</string>
     <string name="device_spoof_desc">模拟其他 Galaxy 机型的 Build 信息</string>
+    <string name="device_custom_model">型号 MODEL</string>
+    <string name="device_custom_codename">代号 DEVICE</string>
+    <string name="device_custom_product">产品名 PRODUCT</string>
+    <string name="device_custom_market">市场名 MARKETNAME</string>
+    <string name="device_custom_hint">未填则使用上方内置机型；想全部自定义请直接修改各字段</string>
     <string name="real_model">真实机型</string>
     <string name="spoof_model">模拟机型</string>
     <string name="model_no">型号</string>

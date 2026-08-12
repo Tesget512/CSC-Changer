@@ -354,13 +354,10 @@ fun HomeScreen(
                     Spacer(Modifier.height(4.dp))
                     val currentModel = readSystemProp("ro.product.model")
                     CurrentCscRow(stringResource(R.string.real_model), currentModel)
-                    config.deviceName.takeIf { it.isNotBlank() }?.let { name ->
-                        DeviceModels.findByName(name)?.let { p ->
-                            CurrentCscRow(stringResource(R.string.spoof_model), p.displayName)
-                            CurrentCscRow(stringResource(R.string.model_no), p.model)
-                            CurrentCscRow(stringResource(R.string.codename), p.device)
-                        }
-                    }
+                    val profile = DeviceModels.findByName(config.deviceName)
+                    CurrentCscRow(stringResource(R.string.spoof_model), config.customMarketName.ifBlank { profile?.name ?: "" })
+                    CurrentCscRow(stringResource(R.string.model_no), config.customModel.ifBlank { profile?.model ?: "" })
+                    CurrentCscRow(stringResource(R.string.codename), config.customDevice.ifBlank { profile?.device ?: "" })
                     DeviceModels.BY_FAMILY.forEach { (family, models) ->
                         Text(
                             family,
@@ -371,15 +368,61 @@ fun HomeScreen(
                             modifier = Modifier.horizontalScroll(rememberScrollState()),
                             horizontalArrangement = Arrangement.spacedBy(8.dp),
                         ) {
-                            models.forEach { profile ->
+                            models.forEach { p ->
                                 FilterChip(
-                                    onClick = { config = config.copy(deviceName = profile.name) },
-                                    label = { Text(profile.name.removePrefix("Galaxy ")) },
-                                    selected = config.deviceName == profile.name,
+                                    onClick = {
+                                        // 自动填充：把 profile 的值写进 custom 字段，
+                                        // 这样输入框立刻显示真实值，用户改哪格就用哪格
+                                        config = config.copy(
+                                            deviceName = p.name,
+                                            customModel = p.model,
+                                            customDevice = p.device,
+                                            customProductName = p.productName,
+                                            customMarketName = p.name,
+                                        )
+                                    },
+                                    label = { Text(p.name.removePrefix("Galaxy ")) },
+                                    selected = config.deviceName == p.name,
                                 )
                             }
                         }
                     }
+                    Spacer(Modifier.height(8.dp))
+                    HorizontalDivider()
+                    Text(
+                        stringResource(R.string.device_custom_hint),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                    Spacer(Modifier.height(4.dp))
+                    OutlinedTextField(
+                        value = config.customModel,
+                        onValueChange = { config = config.copy(customModel = it) },
+                        label = { Text(stringResource(R.string.device_custom_model)) },
+                        singleLine = true,
+                        modifier = Modifier.fillMaxWidth(),
+                    )
+                    OutlinedTextField(
+                        value = config.customDevice,
+                        onValueChange = { config = config.copy(customDevice = it) },
+                        label = { Text(stringResource(R.string.device_custom_codename)) },
+                        singleLine = true,
+                        modifier = Modifier.fillMaxWidth(),
+                    )
+                    OutlinedTextField(
+                        value = config.customProductName,
+                        onValueChange = { config = config.copy(customProductName = it) },
+                        label = { Text(stringResource(R.string.device_custom_product)) },
+                        singleLine = true,
+                        modifier = Modifier.fillMaxWidth(),
+                    )
+                    OutlinedTextField(
+                        value = config.customMarketName,
+                        onValueChange = { config = config.copy(customMarketName = it) },
+                        label = { Text(stringResource(R.string.device_custom_market)) },
+                        singleLine = true,
+                        modifier = Modifier.fillMaxWidth(),
+                    )
                 }
             }
 

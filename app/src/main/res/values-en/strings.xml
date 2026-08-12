@@ -29,6 +29,11 @@
     <string name="mcc_hint">Auto-filled from CSC; editable</string>
     <string name="device_spoof">Device Spoof</string>
     <string name="device_spoof_desc">Spoof Build info as another Galaxy model</string>
+    <string name="device_custom_model">Model</string>
+    <string name="device_custom_codename">Codename</string>
+    <string name="device_custom_product">Product name</string>
+    <string name="device_custom_market">Market name</string>
+    <string name="device_custom_hint">Leave blank to use the built-in model above; fill all fields for a fully custom device</string>
     <string name="real_model">Real Model</string>
     <string name="spoof_model">Spoof Model</string>
     <string name="model_no">Model</string>
