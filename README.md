@@ -1,5 +1,7 @@
 # CSC Changer
 
+[English](README.en.md)
+
 一个 LSPosed 模块，通过 hook 三星系统框架的属性读取路径，让 Galaxy Store、主题商店等三星系统应用识别到你指定的区域（CSC / 销售代码）。
 
 > 仅在 One UI 8.5 上测试通过，其他版本不保证能够使用。
